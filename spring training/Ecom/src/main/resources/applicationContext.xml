@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+   <!-- Choose implementation -->
+   <bean id="Debit" class="com.example.DebitCard"/>
+   <bean id="Credit" class = "com.example.CreditCard"/>
+
+
+   <!-- Inject dependency -->
+   <bean id="OrderService" class="com.example.OrderService">
+       <constructor-arg ref="Credit"/>
+   </bean>
+</beans>
