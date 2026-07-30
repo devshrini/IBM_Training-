@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Replaced with the "title" model attribute from StudentController -->
+<h1 th:text="${title}">Default Title</h1>
+
+<!-- Loops over "studentsList" from StudentController -->
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Course</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${studentsList}">
+        <td th:text="${student.id}">1</td>
+        <td th:text="${student.name}">Student Name</td>
+        <td th:text="${student.course}">Course Name</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
